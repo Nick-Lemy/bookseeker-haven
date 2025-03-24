@@ -1,26 +1,101 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>bookseeker-haven</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
-
-    <meta property="og:title" content="Lovable Generated Project" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <title>Book Explorer</title>
+    <meta name="description" content="Search and explore books from Open Library" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
+    <!-- Hero Section -->
+    <div class="hero">
+      <div class="container">
+        <div class="header">
+          <div class="badge">Open Library Explorer</div>
+          <h1>Discover the world of <span>literature</span></h1>
+          <p>Explore millions of books from the Open Library database with a clean, intuitive interface.</p>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-container">
+          <div class="search-wrapper">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search for books, authors, or subjects..."
+            />
+            <button id="search-button">Search</button>
+          </div>
+          <div class="recent-searches" id="recent-searches">
+            <!-- Recent searches will be populated here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Book Details Modal -->
+    <div class="modal-overlay" id="book-modal">
+      <div class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 id="modal-title"></h2>
+            <button id="close-modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="book-details">
+              <div class="book-cover" id="modal-cover"></div>
+              <div class="book-info">
+                <div class="book-detail" id="modal-author">
+                  <h3>Author</h3>
+                  <p></p>
+                </div>
+                <div class="book-detail" id="modal-year">
+                  <h3>First Published</h3>
+                  <p></p>
+                </div>
+                <div class="book-detail" id="modal-publisher">
+                  <h3>Publisher</h3>
+                  <p></p>
+                </div>
+                <div class="book-detail" id="modal-subjects">
+                  <h3>Subjects</h3>
+                  <div class="subjects-list"></div>
+                </div>
+                <div class="book-action">
+                  <a id="modal-link" target="_blank" rel="noopener noreferrer">
+                    View on Open Library
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results Section -->
+    <div class="results" id="results-section">
+      <h2>Search Results</h2>
+      <div class="books-grid" id="books-grid">
+        <!-- Books will be displayed here -->
+      </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container"></div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>Data provided by <a href="https://openlibrary.org" target="_blank" rel="noopener noreferrer">Open Library</a></p>
+        <p>Created for educational purposes only</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
